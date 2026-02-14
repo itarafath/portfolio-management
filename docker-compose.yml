@@ -16,6 +16,7 @@ services:
       timeout: 5s
       retries: 5
 
+  # ─── Production services ───
   backend:
     build: ./backend
     profiles: [ "production" ]
@@ -42,6 +43,42 @@ services:
       - "8080:80"
     depends_on:
       - backend
+
+  # ─── Development services ───
+  backend-dev:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    profiles: [ "dev" ]
+    environment:
+      DATABASE_HOST: mysql
+      DATABASE_PORT: 3306
+      DATABASE_USERNAME: root
+      DATABASE_PASSWORD: developer
+      DATABASE_NAME: portfolio_db
+      JWT_SECRET: dev-secret-key
+      PORT: 3000
+      NODE_ENV: development
+      CORS_ORIGIN: https://frontend-dev.portfolio.orb.local
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend/src:/app/src
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  frontend-dev:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    profiles: [ "dev" ]
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend/src:/app/src
+    depends_on:
+      - backend-dev
 
 volumes:
   mysql_data:

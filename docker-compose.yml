@@ -1,7 +1,6 @@
 version: '3.8'
 
 services:
-  # ─── Database (used in both dev and production) ───
   mysql:
     image: mysql:8.0
     environment:
@@ -17,7 +16,6 @@ services:
       timeout: 5s
       retries: 5
 
-  # ─── Production backend (builds & runs compiled JS) ───
   backend:
     build: ./backend
     profiles: [ "production" ]
@@ -37,7 +35,6 @@ services:
       mysql:
         condition: service_healthy
 
-  # ─── Production frontend (nginx serving static files) ───
   frontend:
     build: ./frontend
     profiles: [ "production" ]

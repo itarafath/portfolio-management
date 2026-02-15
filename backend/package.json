@@ -4,7 +4,7 @@
     "description": "Portfolio Management Dashboard - Backend API",
     "main": "dist/server.js",
     "scripts": {
-        "dev": "ts-node-dev --respawn --transpile-only -r reflect-metadata src/server.ts",
+        "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only -r reflect-metadata src/server.ts",
         "build": "tsc",
         "start": "node dist/server.js",
         "start:migrate": "npm run build && npm start",
@@ -12,7 +12,8 @@
         "migration:generate": "npm run typeorm -- migration:generate -d src/config/database.ts",
         "migration:run": "npm run typeorm -- migration:run -d src/config/database.ts",
         "migration:revert": "npm run typeorm -- migration:revert -d src/config/database.ts",
-        "seed": "ts-node -r reflect-metadata src/scripts/seed.ts"
+        "seed": "ts-node -r reflect-metadata src/scripts/seed.ts",
+        "test": "jest"
     },
     "keywords": [],
     "author": "",
@@ -35,10 +36,16 @@
         "@types/bcryptjs": "^2.4.6",
         "@types/cors": "^2.8.17",
         "@types/express": "^5.0.0",
+        "@types/jest": "^30.0.0",
         "@types/jsonwebtoken": "^9.0.9",
         "@types/node": "^22.13.4",
+        "@types/supertest": "^6.0.3",
         "@types/uuid": "^10.0.0",
+        "jest": "^30.2.0",
+        "supertest": "^7.2.2",
+        "ts-jest": "^29.4.6",
         "ts-node-dev": "^2.0.0",
+        "tsconfig-paths": "^4.2.0",
         "typescript": "^5.7.3"
     }
 }

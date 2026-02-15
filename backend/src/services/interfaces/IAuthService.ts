@@ -1,4 +1,4 @@
-import { RegisterInput, LoginInput } from '../../dtos/auth/auth.dto';
+import { RegisterInput, LoginInput } from '@/dtos/auth/auth.dto';
 
 export interface AuthResponse {
     user: {

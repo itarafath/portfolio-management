@@ -1,5 +1,5 @@
-import { Transaction } from '../../entities';
-import { CreateTransactionInput } from '../../dtos/transaction/transaction.dto';
+import { Transaction } from '@/entities';
+import { CreateTransactionInput } from '@/dtos/transaction/transaction.dto';
 
 export interface ITransactionService {
     getByPortfolioId(

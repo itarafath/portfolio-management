@@ -1,6 +1,6 @@
-import { AssetType } from '../entities';
-import { IAssetTypeService } from './interfaces/IAssetTypeService';
-import { IAssetTypeRepository } from '../repositories/interfaces/IAssetTypeRepository';
+import { AssetType } from '@/entities';
+import { IAssetTypeService } from '@/services/interfaces/IAssetTypeService';
+import { IAssetTypeRepository } from '@/repositories/interfaces/IAssetTypeRepository';
 
 export class AssetTypeService implements IAssetTypeService {
     constructor(private assetTypeRepo: IAssetTypeRepository) { }

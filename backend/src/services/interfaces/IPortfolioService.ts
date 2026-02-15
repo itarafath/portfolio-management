@@ -1,5 +1,5 @@
-import { Portfolio } from '../../entities';
-import { CreatePortfolioInput, UpdatePortfolioInput } from '../../dtos/portfolio/portfolio.dto';
+import { Portfolio } from '@/entities';
+import { CreatePortfolioInput, UpdatePortfolioInput } from '@/dtos/portfolio/portfolio.dto';
 
 export interface IPortfolioService {
     getAll(userId: string): Promise<Portfolio[]>;

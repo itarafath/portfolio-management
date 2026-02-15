@@ -1,5 +1,5 @@
-import { Investment } from '../../entities';
-import { CreateInvestmentInput, UpdateInvestmentInput } from '../../dtos/investment/investment.dto';
+import { Investment } from '@/entities';
+import { CreateInvestmentInput, UpdateInvestmentInput } from '@/dtos/investment/investment.dto';
 import { PortfolioSummary } from '../InvestmentService';
 
 export interface IInvestmentService {

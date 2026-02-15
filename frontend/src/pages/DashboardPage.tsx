@@ -35,7 +35,6 @@ export default function DashboardPage() {
             }
             setSummaries(summaryMap);
         } catch {
-            // handled by interceptor
         } finally {
             setLoading(false);
         }
